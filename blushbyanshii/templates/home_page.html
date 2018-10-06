@@ -7,6 +7,11 @@
     <title>{{title}}</title>
 </head>
 <body>
-    {{title}}
+    {{title}}<br>
+    {% if user.is_authenticated %}
+            {{premium}}
+    {% else %}
+            {{regular}}
+    {% endif %}
 </body>
 </html>
