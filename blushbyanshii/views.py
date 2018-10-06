@@ -1,8 +1,11 @@
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from .forms import ContactForm, Loginform,SignUpForm
+from django.contrib.sessions.models import Session
+from django.contrib.auth.models import User
 
-from .forms import ContactForm, Loginform
+
 def home_page(request):
     context = {
         'title':'BLUSH by Anshii',
