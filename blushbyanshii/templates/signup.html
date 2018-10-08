@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--<form  method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit">
+    </form>-->
+    <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+              
+             <div class="sign-u">
+                 <div class="sign-up1">
+                         <h4 class="a">{{ field.label_tag }}</h4>
+                 </div>
+                 <div class="sign-up2">
+                {{ field }}
+                {% if field.help_text %}
+                  <small style="color: grey">{{ field.help_text }}</small>
+                 </div>
+                {% endif %}
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                
+             </div>
+             <div class="clearfix"> </div>
+         
+            {% endfor %}
+            <input type="submit" value="Submit">
+           <!-- <button type="submit">Sign up</button>-->
+    </form>
+</body>
+</html>

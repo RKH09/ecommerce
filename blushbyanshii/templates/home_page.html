@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,17 @@
     {{title}}<br>
     {% if user.is_authenticated %}
             {{premium}}
+           
+            <form action="{% url 'logout_user' %}" method="post">
+                    {% csrf_token %}
+                    
+                    <input type="submit"  value="Logout">
+             </form>
     {% else %}
             {{regular}}
+            <a href="/login">Login</a>
     {% endif %}
+
+
 </body>
 </html>
