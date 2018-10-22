@@ -2,26 +2,678 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
+<title>BlushbyAnshii - Kissed in Sunshine</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Wish shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link href="{% static 'plugins/colorbox/colorbox.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    
+<!--essence-->
+    <link rel="stylesheet" href="{% static 'css/core-style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    {{title}}<br>
-    {% if user.is_authenticated %}
-            {{premium}}
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+<!-- ##### Header Area Start ##### -->
+    <header class="header_area">
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar" id="essenceNav">
+                <!-- Logo -->
+                <a class="nav-brand" href="index.html" style="color: #e11687; font-family:'Poppins', sans-serif"><!--<img src="{% static 'img/logo.jpg' %}" height="" alt="">-->BLUSH</a>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="#">New Arrival</a>
+                                <div class="megamenu">
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">INDIAN WEAR</li>
+                                        <li><a href="shop.html">Sarees</a></li>
+                                        <li><a href="shop.html">Lehengas</a></li>
+                                        <li><a href="shop.html">Kurtis</a></li>
+                                        <li><a href="shop.html">Ethnic Gown</a></li>
+                                        <li><a href="shop.html">Two Pices Set</a></li>
+                                    </ul>
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">WESTERN WEAR</li>
+                                        <li><a href="shop.html">Tops &amp; Tees</a></li>
+                                        <li><a href="shop.html">Gowns</a></li>
+                                        <li><a href="shop.html">Dresses</a></li>
+                                        <li><a href="shop.html">Prom Dresses</a></li>
+                                    </ul>
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">INDO WESTERN</li>
+                                        <li><a href="shop.html">Crop Top &amp; Skirt</a></li>
+                                        <li><a href="shop.html">Drape Style</a></li>
+                                        <li><a href="shop.html">Kurti Plazzo Set</a></li>
+                                        <li><a href="shop.html">Three Piece Outfit</a></li>
+                                        
+                                    </ul>
+                                    <div class="single-mega cn-col-4">
+                                        <img src="{% static 'img/bg-img/bg-6.jpg' %}" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#">Inspired Outfit</a>
+                                <ul class="dropdown">
+                                    <li><a href="index.html">Celebrity Inspired</a></li>
+                                    <li><a href="blog.html">Exclusive Design</a></li>
+                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="single-product-details.html">Product Details</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                   <!-- <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="single-blog.html">Single Blog</a></li>
+                                    <li><a href="regular-page.html">Regular Page</a></li>-->
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li><a href="{% url 'lookbook' %}">Lookbook</a></li>
+                            <li><a href="contact.html">About Us</a></li>
+                            
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+
+            <!-- Header Meta Data -->
+            <div class="header-meta d-flex clearfix justify-content-end">
+                <!-- Search Area -->
+                <div class="search-area">
+                    <form action="#" method="post">
+                        <input type="search" name="search" id="headerSearch" placeholder="Type for search">
+                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+                <!-- Favourite Area -->
+                <div class="favourite-area">
+                    <a href="#"><img src="{% static 'img/core-img/heart.svg' %}" alt=""></a>
+                </div>
+                <!-- User Login Info -->
+                <div class="user-login-info">
+                    <a href="#"><img src="{% static 'img/core-img/user.svg' %}" alt=""></a>
+                </div>
+                <!-- Cart Area -->
+                <div class="cart-area">
+                    <a href="#" id="essenceCartBtn"><img src="{% static 'img/core-img/bag.svg' %}" alt=""> <span>3</span></a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Right Side Cart Area ##### -->
+    <div class="cart-bg-overlay"></div>
+
+    <div class="right-side-cart-area">
+
+        <!-- Cart Button -->
+        <div class="cart-button">
+            <a href="#" id="rightSideCart"><img src="{% static 'img/core-img/bag.svg' %}" alt=""> <span>3</span></a>
+        </div>
+
+        <div class="cart-content d-flex">
+
+            <!-- Cart List Area -->
+            <div class="cart-list">
+                <!-- Single Cart Item -->
+                <div class="single-cart-item">
+                    <a href="#" class="product-image">
+                        <img src="{% static 'img/product-img/product-1.jpg' %}" class="cart-thumb" alt="">
+                        <!-- Cart Item Desc -->
+                        <div class="cart-item-desc">
+                          <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                            <span class="badge">Mango</span>
+                            <h6>Button Through Strap Mini Dress</h6>
+                            <p class="size">Size: S</p>
+                            <p class="color">Color: Red</p>
+                            <p class="price">$45.00</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Single Cart Item -->
+                <div class="single-cart-item">
+                    <a href="#" class="product-image">
+                        <img src="{% static 'img/product-img/product-2.jpg' %}" class="cart-thumb" alt="">
+                        <!-- Cart Item Desc -->
+                        <div class="cart-item-desc">
+                          <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                            <span class="badge">Mango</span>
+                            <h6>Button Through Strap Mini Dress</h6>
+                            <p class="size">Size: S</p>
+                            <p class="color">Color: Red</p>
+                            <p class="price">$45.00</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Single Cart Item -->
+                <div class="single-cart-item">
+                    <a href="#" class="product-image">
+                        <img src="{% static 'img/product-img/product-3.jpg' %}" class="cart-thumb" alt="">
+                        <!-- Cart Item Desc -->
+                        <div class="cart-item-desc">
+                          <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                            <span class="badge">Mango</span>
+                            <h6>Button Through Strap Mini Dress</h6>
+                            <p class="size">Size: S</p>
+                            <p class="color">Color: Red</p>
+                            <p class="price">$45.00</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-amount-summary">
+
+                <h2>Summary</h2>
+                <ul class="summary-table">
+                    <li><span>subtotal:</span> <span>$274.00</span></li>
+                    <li><span>delivery:</span> <span>Free</span></li>
+                    <li><span>discount:</span> <span>-15%</span></li>
+                    <li><span>total:</span> <span>$232.00</span></li>
+                </ul>
+                <div class="checkout-btn mt-100">
+                    <a href="checkout.html" class="btn essence-btn">check out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Right Side Cart End ##### -->
+
+	<!-- Home -->
+    <div style="height: 1px;"></div>
+	<div class="home">
+		
+		<!-- Home Slider -->
+
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+				
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({% static 'other_imgs/M7A9379_cfefe578-8387-497f-86fa-16fab125c9f6_1600x800.progressive.jpg' %})"></div>
+					<div class="home_slider_content">
+						<div class="home_slider_content_inner">
+							<div class="home_slider_subtitle">New definition of style</div>
+							<div class="home_slider_title">Kissed in Sunshine</div>
+						</div>	
+					</div>
+				</div>
+
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({% static 'other_imgs/slider-image-7.jpg' %})"></div>
+					<div class="home_slider_content">
+						<div class="home_slider_content_inner">
+							<div class="home_slider_subtitle">Discover our new collection</div>
+							<div class="home_slider_title">New Collection</div>
+						</div>	
+					</div>
+				</div>
+
+				<!-- Home Slider Item -->
+				<div class="owl-item">
+					<div class="home_slider_background" style="background-image:url({% static 'other_imgs/slider-image-1.jpg' %})"></div>
+					<div class="home_slider_content">
+						<div class="home_slider_content_inner"> 
+							<div class="home_slider_subtitle">New definition of style</div>
+							<div class="home_slider_title">New Collection</div>
+						</div>	
+					</div>
+				</div>
+
+			</div>
+            
+			<!-- Home Slider Nav -->
+
+			<div class="home_slider_next d-flex flex-column align-items-center justify-content-center" style="background-color:  #e11687;"><img src="images/arrow_r.png" alt=""></div>
+
+			<!-- Home Slider Dots -->
+
+			<div class="home_slider_dots_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="home_slider_dots">
+								<ul id="home_slider_custom_dots" class="home_slider_custom_dots" >
+									<li class="home_slider_custom_dot active" style="color:  #e11687">01.<div></div></li>
+									<li class="home_slider_custom_dot" style="color:  #e11687">02.<div></div></li>
+									<li class="home_slider_custom_dot" style="color:  #e11687">03.<div></div></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>		
+			</div>
+		</div>
+	</div>
+    </div>
+    <div style="height: 5px; width: 100%; background: #e11687;"></div>
+	<!-- Promo -->
+
+	<div class="promo">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<div class="section_subtitle">only the best</div>
+						<div class="section_title">promo prices</div>
+					</div>
+				</div>
+			</div>
+			<div class="row promo_container">
+
+				<!-- Promo Item -->
+				<div class="col-lg-4 promo_col">
+					<div class="promo_item">
+						<div class="promo_image">
+							<img src="{% static 'images/promo_1.jpg' %}" alt="">
+							<div class="promo_content promo_content_1">
+								<div class="promo_title">-30% off</div>
+								<div class="promo_subtitle">on all bags</div>
+							</div>
+						</div>
+						<div class="promo_link"><a href="#">Shop Now</a></div>
+					</div>
+				</div>
+
+				<!-- Promo Item -->
+				<div class="col-lg-4 promo_col">
+					<div class="promo_item">
+						<div class="promo_image">
+							<img src="{% static 'images/promo_2.jpg' %}" alt="">
+							<div class="promo_content promo_content_2">
+								<div class="promo_title">-30% off</div>
+								<div class="promo_subtitle">coats & jackets</div>
+							</div>
+						</div>
+						<div class="promo_link"><a href="#">Shop Now</a></div>
+					</div>
+				</div>
+
+				<!-- Promo Item -->
+				<div class="col-lg-4 promo_col">
+					<div class="promo_item">
+						<div class="promo_image">
+							<img src="{% static 'images/promo_3.jpg' %}" alt="">
+							<div class="promo_content promo_content_3">
+								<div class="promo_title">-25% off</div>
+								<div class="promo_subtitle">on Sandals</div>
+							</div>
+						</div>
+						<div class="promo_link"><a href="#">Shop Now</a></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- New Arrivals -->
+
+	<div class="arrivals">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<div class="section_subtitle">only the best</div>
+						<div class="section_title">new arrivals</div>
+					</div>
+				</div>
+			</div>
+			<div class="row products_container">
+
+				<!-- Product -->
+				<div class="col-lg-4 product_col">
+					<div class="product">
+						<div class="product_image">
+							<img src="{% static 'images/product_1.jpg' %}" alt="">
+						</div>
+						<div class="rating rating_4">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+						</div>
+						<div class="product_content clearfix">
+							<div class="product_info">
+								<div class="product_name"><a href="product.html">Woman's Long Dress</a></div>
+								<div class="product_price">$45.00</div>
+							</div>
+							<div class="product_options">
+								<div class="product_buy product_option"><img src="{% static 'images/shopping-bag-white.svg' %}" alt=""></div>
+								<div class="product_fav product_option">+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Product -->
+				<div class="col-lg-4 product_col">
+					<div class="product">
+						<div class="product_image">
+							<img src="{% static 'images/product_2.jpg' %}" alt="">
+						</div>
+						<div class="rating rating_4">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+						</div>
+						<div class="product_content clearfix">
+							<div class="product_info">
+								<div class="product_name"><a href="product.html">2 Piece Swimsuit</a></div>
+								<div class="product_price">$35.00</div>
+							</div>
+							<div class="product_options">
+								<div class="product_buy product_option"><img src="{% static 'images/shopping-bag-white.svg' %}" alt=""></div>
+								<div class="product_fav product_option">+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Product -->
+				<div class="col-lg-4 product_col">
+					<div class="product">
+						<div class="product_image">
+							<img src="{% static 'images/product_3.jpg' %}" alt="">
+						</div>
+						<div class="rating rating_4">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+						</div>
+						<div class="product_content clearfix">
+							<div class="product_info">
+								<div class="product_name"><a href="product.html">Women Blue Jacket</a></div>
+								<div class="product_price">$145.00</div>
+							</div>
+							<div class="product_options">
+								<div class="product_buy product_option"><img src="{% static 'images/shopping-bag-white.svg' %}" alt=""></div>
+								<div class="product_fav product_option">+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Extra -->
+
+	<div class="extra clearfix">
+		<div class="extra_promo extra_promo_1">
+			<div class="extra_promo_image" style="background-image:url({% static 'images/extra_1.jpg' %})"></div>
+			<div class="extra_1_content d-flex flex-column align-items-center justify-content-center text-center">
+				<div class="extra_1_price">30%<span>off</span></div>
+				<div class="extra_1_title">On all shoes</div>
+				<div class="extra_1_text">*Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra.</div>
+				<div class="button extra_1_button"><a href="checkout.html">check out</a></div>
+			</div>
+		</div>
+		<div class="extra_promo extra_promo_2">
+			<div class="extra_promo_image" style="background-image:url({% static 'images/extra_2.jpg' %})"></div>
+			<div class="extra_2_content d-flex flex-column align-items-center justify-content-center text-center">
+				<div class="extra_2_title">
+					<div class="extra_2_center">&</div>
+					<div class="extra_2_top">Mix</div>
+					<div class="extra_2_bottom">Match</div>
+				</div>
+				<div class="extra_2_text">*Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra.</div>
+				<div class="button extra_2_button"><a href="checkout.html">check out</a></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Gallery -->
+
+	<div class="gallery">
+		<div class="gallery_image" style="background-image:url({% static 'images/gallery.jpg' %})"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="gallery_title text-center">
+						<ul>
+							<li><a href="#">#wish</a></li>
+							<li><a href="#">#wishinstagram</a></li>
+							<li><a href="#">#wishgirl</a></li>
+						</ul>
+					</div>
+					<div class="gallery_text text-center">*Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra.</div>
+					<div class="button gallery_button"><a href="#">submit</a></div>
+				</div>
+			</div>
+		</div>	
+        
+        
+		<div class="gallery_slider_container">
+			<!-- SnapWidget -->
            
-            <form action="{% url 'logout_user' %}" method="post">
-                    {% csrf_token %}
-                    
-                    <input type="submit"  value="Logout">
-             </form>
-    {% else %}
-            {{regular}}
-            <a href="/login">Login</a>
-    {% endif %}
 
+                <!-- InstaWidget -->
+<!-- InstaWidget -->
 
+            </div>
+			<!-- Gallery Slider -->
+			<div class="owl-carousel owl-theme gallery_slider">
+				
+				<!-- Gallery Item -->
+                
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="{% static 'images/gallery_1.jpg' %}">
+						<img src="{% static 'images/gallery_1.jpg' %}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="images/gallery_2.jpg">
+						<img src="{% static 'images/gallery_2.jpg' %}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="images/gallery_3.jpg">
+						<img src="{% static 'images/gallery_3.jpg' %}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="images/gallery_4.jpg">
+						<img src="{% static 'images/gallery_4.jpg' %}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="images/gallery_5.jpg">
+						<img src="{% static 'images/gallery_5.jpg' %}" alt="">
+					</a>
+				</div>
+
+				<!-- Gallery Item -->
+				<div class="owl-item gallery_item">
+					<a class="colorbox" href="images/gallery_6.jpg">
+						<img src="{% static 'images/gallery_6.jpg' %}" alt="">
+					</a>
+				</div>
+
+			</div>
+		</div>	
+	</div>
+
+	<!-- Testimonials -->
+
+	<div class="testimonials">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<div class="section_subtitle">only the best</div>
+						<div class="section_title">testimonials</div>
+					</div>
+				</div>
+			</div>
+			<div class="row test_slider_container">
+				<div class="col">
+
+					<!-- Testimonials Slider -->
+					<div class="owl-carousel owl-theme test_slider text-center">
+
+						<!-- Testimonial Item -->
+						<div class="owl-item">
+							<div class="test_text">“Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestibulum ultrices nulla. Aliquam egestas tempor leo.”</div>
+							<div class="test_content">
+								<div class="test_image"><img src="{% static 'images/testimonials.jpg' %}" alt=""></div>
+								<div class="test_name">Christinne Smith</div>
+								<div class="test_title">client</div>
+							</div>
+						</div>
+
+						<!-- Testimonial Item -->
+						<div class="owl-item">
+							<div class="test_text">“Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestibulum ultrices nulla. Aliquam egestas tempor leo.”</div>
+							<div class="test_content">
+								<div class="test_image"><img src="{% static 'images/testimonials.jpg' %}" alt=""></div>
+								<div class="test_name">Christinne Smith</div>
+								<div class="test_title">client</div>
+							</div>
+						</div>
+
+						<!-- Testimonial Item -->
+						<div class="owl-item">
+							<div class="test_text">“Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestibulum ultrices nulla. Aliquam egestas tempor leo.”</div>
+							<div class="test_content">
+								<div class="test_image"><img src="{% static 'images/testimonials.jpg' %}" alt=""></div>
+								<div class="test_name">Christinne Smith</div>
+								<div class="test_title">client</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="newsletter_content">
+			<div class="newsletter_image" style="background-image:url({% static 'images/newsletter.jpg' %})"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="section_title_container text-center">
+							<div class="section_subtitle">only the best</div>
+							<div class="section_title">subscribe for a 20% discount</div>
+						</div>
+					</div>
+				</div>
+				<div class="row newsletter_container">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="newsletter_form_container">
+							<form action="#">
+								<input type="email" class="newsletter_input" required="required" placeholder="E-mail here">
+								<button type="submit" class="newsletter_button">subscribe</button>
+							</form>
+						</div>
+						<div class="newsletter_text">Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestib ulum ultrices nulla. Aliquam egestas tempor leo.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="footer_logo"><a href="#">Blush</a></div>
+					<nav class="footer_nav">
+						<ul>
+							<li><a href="index.html">home</a></li>
+							<li><a href="categories.html">clothes</a></li>
+							<li><a href="categories.html">Inpired Oufits</a></li>
+							<li><a href="categories.html">About Us</a></li>
+							<li><a href="contact.html">contact</a></li>
+						</ul>
+					</nav>
+					<div class="footer_social">
+						<ul>
+							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/colorbox/jquery.colorbox-min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+        <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Classy Nav js -->
+    <script src="{% static 'js/classy-nav.min.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
 </body>
 </html>

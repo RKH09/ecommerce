@@ -1,0 +1,33 @@
+
+    Result for <b>{{ query }}</b>
+
+    <a href="?q=lehengas" >Red</a>
+    <a href="?q=Blue" value="Red">Blue</a>
+    <a href="?q=black" value="Red">Black</a>
+        <form action="{% url 'query' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="q" value="{{ query }}"><input type="submit">
+        </form>
+        {% for list in item_list.all %}
+            <a href="/products/{{ list.slug }}"><h2>{{ list.title }}</h2></a>
+            <p>{{ list.description }}</p>
+            <h4>Rs. {{ list.price }}</h4><br>
+        {% endfor %}
+        
+        <div class="pagination">
+            <span class="step-links">
+                {% if item_list.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ item_list.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ item_list.number }} of {{ item_list.paginator.num_pages }}.
+                </span>
+        
+                {% if item_list.has_next %}
+                    <a href="?page={{ item_list.next_page_number }}">next</a>
+                    <a href="?page={{ item_list.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>  
