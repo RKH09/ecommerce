@@ -7,6 +7,17 @@ from products.models import Products
 
 User = get_user_model()
 
+
+class contact_form(models.Model):
+    fullname = models.CharField(max_length=100)
+    email    = models.EmailField()
+    subject  = models.CharField(max_length=500)
+    message = models.TextField()
+    datetime = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     products  =models.ManyToManyField(Products, blank=True)

@@ -1,8 +1,10 @@
+{% extends "base/header.html" %}
 {% load staticfiles %}
+{% block header %}
                      <!DOCTYPE html>
                      <html lang="en">
                      <head>
-                     <title>All Products | BLUSH</title>
+                     <title>{{title}} | BLUSH</title>
                      <meta charset="utf-8">
                      <meta http-equiv="X-UA-Compatible" content="IE=edge">
                      <meta name="description" content="Wish shop project">
@@ -13,6 +15,7 @@
 					 <link rel="stylesheet" type="text/css" href="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.css' %}">
 					 <link rel="stylesheet" type="text/css" href="{% static 'styles/categories.css' %}">
 					 <link rel="stylesheet" type="text/css" href="{% static 'styles/categories_responsive.css' %}">
+					 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
                      <!--essence-->
                          <link rel="stylesheet" href="{% static 'css/core-style.css' %}">
 						 <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -22,194 +25,17 @@
 								background: #e11687;
 								color: #FFFFFF;
 							}
+							.product_buy{
+								background: #e11687;
+								color: #FFFFFF;
+							}
 						 </style>
                      </head>
                      <body>
-                     
-                     <div class="super_container">
+{% endblock %}
+{% block body %}
+<div class="super_container">
                          
-                         <!-- Header -->
-                     
-                     <!-- ##### Header Area Start ##### -->
-                     <header class="header_area">
-                         <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
-                             <!-- Classy Menu -->
-                             <nav class="classy-navbar" id="essenceNav">
-                                 <!-- Logo -->
-                                 <a class="nav-brand" href="index.html" style="color: #e11687; font-family:'Poppins', sans-serif"><!--<img src="{% static 'img/logo.jpg' %}" height="" alt="">-->BLUSH</a>
-                                 <!-- Navbar Toggler -->
-                                 <div class="classy-navbar-toggler">
-                                     <span class="navbarToggler"><span></span><span></span><span></span></span>
-                                 </div>
-                                 <!-- Menu -->
-                                 <div class="classy-menu">
-                                     <!-- close btn -->
-                                     <div class="classycloseIcon">
-                                         <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                                     </div>
-                                     <!-- Nav Start -->
-                                     <div class="classynav">
-                                         <ul>
-                                             <li><a href="#">New Arrival</a>
-                                                 <div class="megamenu">
-                                                     <ul class="single-mega cn-col-4">
-                                                         <li class="title">INDIAN WEAR</li>
-                                                         <li><a href="shop.html">Sarees</a></li>
-                                                         <li><a href="shop.html">Lehengas</a></li>
-                                                         <li><a href="shop.html">Kurtis</a></li>
-                                                         <li><a href="shop.html">Ethnic Gown</a></li>
-                                                         <li><a href="shop.html">Two Pices Set</a></li>
-                                                     </ul>
-                                                     <ul class="single-mega cn-col-4">
-                                                         <li class="title">WESTERN WEAR</li>
-                                                         <li><a href="shop.html">Tops &amp; Tees</a></li>
-                                                         <li><a href="shop.html">Gowns</a></li>
-                                                         <li><a href="shop.html">Dresses</a></li>
-                                                         <li><a href="shop.html">Prom Dresses</a></li>
-                                                     </ul>
-                                                     <ul class="single-mega cn-col-4">
-                                                         <li class="title">INDO WESTERN</li>
-                                                         <li><a href="shop.html">Crop Top &amp; Skirt</a></li>
-                                                         <li><a href="shop.html">Drape Style</a></li>
-                                                         <li><a href="shop.html">Kurti Plazzo Set</a></li>
-                                                         <li><a href="shop.html">Three Piece Outfit</a></li>
-                                                         
-                                                     </ul>
-                                                     <div class="single-mega cn-col-4">
-                                                         <img src="{% static 'img/bg-img/bg-6.jpg' %}" alt="">
-                                                     </div>
-                                                 </div>
-                                             </li>
-                                             <li><a href="#">Inspired Outfit</a>
-                                                 <ul class="dropdown">
-                                                     <li><a href="index.html">Celebrity Inspired</a></li>
-                                                     <li><a href="blog.html">Exclusive Design</a></li>
-                                                     <li><a href="shop.html">Shop</a></li>
-                                                     <li><a href="single-product-details.html">Product Details</a></li>
-                                                     <li><a href="checkout.html">Checkout</a></li>
-                                                    <!-- <li><a href="blog.html">Blog</a></li>
-                                                     <li><a href="single-blog.html">Single Blog</a></li>
-                                                     <li><a href="regular-page.html">Regular Page</a></li>-->
-                                                     <li><a href="contact.html">Contact</a></li>
-                                                 </ul>
-                                             </li>
-                                             
-                                             <li><a href="{% url 'lookbook' %}">Lookbook</a></li>
-                                             <li><a href="contact.html">About Us</a></li>
-                                             
-                                         </ul>
-                                     </div>
-                                     <!-- Nav End -->
-                                 </div>
-                             </nav>
-                     
-                             <!-- Header Meta Data -->
-                             <div class="header-meta d-flex clearfix justify-content-end">
-                                 <!-- Search Area -->
-                                 <div class="search-area">
-                                     <form action="#" method="post">
-                                         <input type="search" name="search" id="headerSearch" placeholder="Type for search">
-                                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                     </form>
-                                 </div>
-                                 <!-- Favourite Area -->
-                                 <div class="favourite-area">
-                                     <a href="#"><img src="{% static 'img/core-img/heart.svg' %}" alt=""></a>
-                                 </div>
-                                 <!-- User Login Info -->
-                                 <div class="user-login-info">
-                                     <a href="#"><img src="{% static 'img/core-img/user.svg' %}" alt=""></a>
-                                 </div>
-                                 <!-- Cart Area -->
-                                 <div class="cart-area">
-                                     <a href="#" id="essenceCartBtn"><img src="{% static 'img/core-img/bag.svg' %}" alt=""> <span>3</span></a>
-                                 </div>
-                             </div>
-                     
-                         </div>
-                     </header>
-                     <!-- ##### Header Area End ##### -->
-                     
-                     <!-- ##### Right Side Cart Area ##### -->
-                     <div class="cart-bg-overlay"></div>
-                     
-                     <div class="right-side-cart-area">
-                     
-                         <!-- Cart Button -->
-                         <div class="cart-button">
-                             <a href="#" id="rightSideCart"><img src="{% static 'img/core-img/bag.svg' %}" alt=""> <span>3</span></a>
-                         </div>
-                     
-                         <div class="cart-content d-flex">
-                     
-                             <!-- Cart List Area -->
-                             <div class="cart-list">
-                                 <!-- Single Cart Item -->
-                                 <div class="single-cart-item">
-                                     <a href="#" class="product-image">
-                                         <img src="{% static 'img/product-img/product-1.jpg' %}" class="cart-thumb" alt="">
-                                         <!-- Cart Item Desc -->
-                                         <div class="cart-item-desc">
-                                           <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                                             <span class="badge">Mango</span>
-                                             <h6>Button Through Strap Mini Dress</h6>
-                                             <p class="size">Size: S</p>
-                                             <p class="color">Color: Red</p>
-                                             <p class="price">$45.00</p>
-                                         </div>
-                                     </a>
-                                 </div>
-                     
-                                 <!-- Single Cart Item -->
-                                 <div class="single-cart-item">
-                                     <a href="#" class="product-image">
-                                         <img src="{% static 'img/product-img/product-2.jpg' %}" class="cart-thumb" alt="">
-                                         <!-- Cart Item Desc -->
-                                         <div class="cart-item-desc">
-                                           <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                                             <span class="badge">Mango</span>
-                                             <h6>Button Through Strap Mini Dress</h6>
-                                             <p class="size">Size: S</p>
-                                             <p class="color">Color: Red</p>
-                                             <p class="price">$45.00</p>
-                                         </div>
-                                     </a>
-                                 </div>
-                     
-                                 <!-- Single Cart Item -->
-                                 <div class="single-cart-item">
-                                     <a href="#" class="product-image">
-                                         <img src="{% static 'img/product-img/product-3.jpg' %}" class="cart-thumb" alt="">
-                                         <!-- Cart Item Desc -->
-                                         <div class="cart-item-desc">
-                                           <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                                             <span class="badge">Mango</span>
-                                             <h6>Button Through Strap Mini Dress</h6>
-                                             <p class="size">Size: S</p>
-                                             <p class="color">Color: Red</p>
-                                             <p class="price">$45.00</p>
-                                         </div>
-                                     </a>
-                                 </div>
-                             </div>
-                     
-                             <!-- Cart Summary -->
-                             <div class="cart-amount-summary">
-                     
-                                 <h2>Summary</h2>
-                                 <ul class="summary-table">
-                                     <li><span>subtotal:</span> <span>$274.00</span></li>
-                                     <li><span>delivery:</span> <span>Free</span></li>
-                                     <li><span>discount:</span> <span>-15%</span></li>
-                                     <li><span>total:</span> <span>$232.00</span></li>
-                                 </ul>
-                                 <div class="checkout-btn mt-100">
-                                     <a href="checkout.html" class="btn essence-btn">check out</a>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-
 	<!-- Home -->
 	<div class="home">
 		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/cart.jpg' %}" data-speed="0.8"></div>
@@ -221,9 +47,9 @@
 							<div class="home_title">Woman</div>
 							<div class="breadcrumbs">
 								<ul>
-									<li><a href="index.html">Home</a></li>
+									<li><a href="{% url 'index' %}">Home</a></li>
 									<li>Woman</li>
-									<li>Accessories</li>
+									<li>{{title}}</li>
 								</ul>
 							</div>
 						</div>
@@ -251,12 +77,12 @@
 							<div class="sidebar_title">Categories</div>
 							<div class="sidebar_section_content">
 								<ul>
-									<li><a href="#">Wedding Dresses (23)</a></li>
-									<li><a href="#">Swimsuits (11)</a></li>
-									<li><a href="#">Jeans (61)</a></li>
-									<li><a href="#">Tops (34)</a></li>
-									<li><a href="#">Tops (34)</a></li>
-									<li><a href="#">Tops (34)</a></li>
+									<li><a href="{% url 'product-list' %}">Dresses </a></li>
+									<li><a href="{% url 'accessories' %}">Accessories</a></li>
+									<li><a href="{% url 'category' %}?q=1">Sarees </a></li>
+									<li><a href="{% url 'category' %}?q=2">Lehengas </a></li>
+									<li><a href="{% url 'category' %}?q=10">Crop Top & Skirts</a></li>
+									<li><a href="{% url 'categories' %}?q=10">All Categories</a></li>
 								</ul>
 								
 							</div>
@@ -269,58 +95,35 @@
 								
 								<ul>
 									{% for tagName in tags %}
-										<li><a href="#"><span style="background:{{tagName}}"></span>{{tagName}}</a></li>
+										<li><a href="../tags/?q={{tagName}}">
+												<span class="glyphicon glyphicon-ok"></span>
+											  {{tagName}}</a></li>
 									{% endfor %}
 								</ul>
 							</div>
 						</div>
 
-
 						<!-- Best Sellers -->
 
 						<div class="sidebar_section">
-							<div class="sidebar_title">Best Sellers</div>
+							<div class="sidebar_title">Exclusive</div>
 							<div class="sidebar_section_content bestsellers_content">
 								<ul>
 									<!-- Best Seller Item -->
+									
+										
+									{% for lists in feat %}
 									<li class="clearfix">
-										<div class="best_image"><img src="{% static 'images/best_1.jpg' %}" alt=""></div>
+										<div class="best_image"><img src="{{ lists.image.url }}" alt=""></div>
 										<div class="best_content">
-											<div class="best_title"><a href="product.html">Blue dress with dots</a></div>
-											<div class="best_price">$45</div>
+											<div class="best_title"><a href="/products/{{ lists.slug }}">{{ lists.title|slice:":28" }}</a></div>
+											<div class="best_price">&#x20b9;{{ lists.price }}</div>
 										</div>
-										<div class="best_buy">+</div>
+										
 									</li>
+									{% endfor %}
+									
 
-									<!-- Best Seller Item -->
-									<li class="clearfix">
-										<div class="best_image"><img src="{% static 'images/best_2.jpg' %}" alt=""></div>
-										<div class="best_content">
-											<div class="best_title"><a href="product.html">White t-shirt</a></div>
-											<div class="best_price">$45</div>
-										</div>
-										<div class="best_buy">+</div>
-									</li>
-
-									<!-- Best Seller Item -->
-									<li class="clearfix">
-										<div class="best_image"><img src="{% static 'images/best_3.jpg' %}" alt=""></div>
-										<div class="best_content">
-											<div class="best_title"><a href="product.html">Blue dress with dots</a></div>
-											<div class="best_price">$45</div>
-										</div>
-										<div class="best_buy">+</div>
-									</li>
-
-									<!-- Best Seller Item -->
-									<li class="clearfix">
-										<div class="best_image"><img src="{% static 'images/best_4.jpg' %}" alt=""></div>
-										<div class="best_content">
-											<div class="best_title"><a href="product.html">White t-shirt</a></div>
-											<div class="best_price">$45</div>
-										</div>
-										<div class="best_buy">+</div>
-									</li>
 
 								</ul>
 							</div>
@@ -385,48 +188,82 @@
 							<!-- Product -->
 						{% for list in item_list %}
 							<div class="product">
-								<div class="product_image"><img src="{{ list.image.url }}" alt=""></div>
-								<!--<div class="rating rating_3" data-rating="3">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>-->
+								<div class="product_image"><img src="{{ list.image.url }}" alt=""></div>								
 								<div class="product_content clearfix">
 									<div class="product_info">
-										<div class="product_name"><a href="/products/{{ list.slug }}">{{ list.title }}</a></div>
-										<div class="product_price">Rs. {{ list.price }}</div>
+										<div class="product_name" style="line-height: 1.6;"><a href="/products/{{ list.slug }}"  >{{ list.title|slice:":35" }}</a></div>
+										<div class="product_price">&#x20b9;{{ list.price }}</div>
 									</div>
 									<div class="product_options">
-										<div class="product_buy product_option"><img src="{% static 'images/shopping-bag-white.svg' %}" alt=""></div>
-										<div class="product_fav product_option">+</div>
+									{% if request.user.is_authenticated  %}
+									{% if list in current_order_products %}
+									<a href="{% url 'shopping_cart:order_summary' %}"><div class="product_buy product_option" 
+										style="width:auto; height: auto; padding: 9px; color:white" >
+											Go To Cart</div></a>
+									{% else %}
+									<div class="product_buy product_option" alt="Add to Cart" id="product{{ list.id }}" onclick="addtocart('{{ list.id }}')">
+										<img src="{% static 'images/shopping-bag-white.svg' %}" alt=""></div>
+									{% endif %}
+
+									{% if list in wishlist_order_products %}
+										<div class="product_fav product_option" style="color:white; background:black;">+</div>
+									{% else %}
+										<div class="product_fav product_option" id="wishlist{{ list.id }}" onclick="addtowishlist('{{ list.id }}')">+</div>
+									{% endif %}
+
+									{% else %}
+									<div class="product_buy product_option" style="width:auto; height: auto; padding: 8px; color:white">
+										<a href="{% url 'login' %}" style="color:#FFF;">Login</a></div>
+									{%	endif	%}
+										
 									</div>
 								</div>
 							</div>
 							{% endfor %}
 							<!-- Product -->
-						<!-- Product -->
-						<!--<div class="product">
-							<div class="product_image"><img src="{% static 'images/product_12.jpg' %}" alt=""></div>
-							<div class="rating rating_3" data-rating="3">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<div class="product_content clearfix">
-								<div class="product_info">
-									<div class="product_name"><a href="product.html">Man Blue Jacket</a></div>
-									<div class="product_price">$145.00</div>
-								</div>
-								<div class="product_options">
-									<div class="product_buy product_option"><img src="{% static 'images/shopping-bag-white.svg' %}" alt=""></div>
-									<div class="product_fav product_option">+</div>
-								</div>
-							</div>
-						</div>-->
+							<script type="text/javascript">
+								function addtocart(product_id){
+									var product = product_id;
+									$('#product'+product).css("width","auto");
+									$('#product'+product).css("height","auto");
+									$('#product'+product).css("color","white");
+									$('#product'+product).css("padding","9px");
+									$('#product'+product).html('<a href="{% url 'shopping_cart:order_summary' %}" ><font color="white">Go to Cart</font></a>');
+									$.ajax({
+									type: 'POST',
+									url: '/add-to-cart/'+product+'/',
+									data:{
+									csrfmiddlewaretoken: '{{ csrf_token }}',
+									product:product,
+									},
+									success:function(){
+										
+									}
+									});
+									
+									}
+									
+							</script>
+							<script type="text/javascript">
+								function addtowishlist(product_id){
+									var product = product_id;
+									$('#wishlist'+product).css("background","black");
+									$('#wishlist'+product).css("color","white");
+									$.ajax({
+									type: 'POST',
+									url: '/add-to-wishlist/'+product+'/',
+									data:{
+									csrfmiddlewaretoken: '{{ csrf_token }}',
+									product:product,
+									},
+									success:function(){
+										
+									}
+									});
+									
+									}
+									
+							</script>
 
 					</div>
 				</div>
@@ -435,13 +272,24 @@
 
 			<div class="row page_num_container">
 				<div class="col text-right">
-					<ul class="page_nums">
-						<li><a href="#">01</a></li>
-						<li class="active"><a href="#">02</a></li>
-						<li><a href="#">03</a></li>
-						<li><a href="#">04</a></li>
-						<li><a href="#">05</a></li>
-					</ul>
+						<div class="pagination" style="float:right;">
+								<span class="step-links">
+								{% if item_list.has_previous %}
+								<a href="?page=1">&laquo; first</a>
+								<a href="?page={{ item_list.previous_page_number }}">previous</a>
+								{% endif %}
+								
+								<span class="current">
+								Page {{ item_list.number }} of {{ item_list.paginator.num_pages }}.
+								</span>
+								
+								{% if item_list.has_next %}
+								<a href="?page={{ item_list.next_page_number }}">next</a>
+								<a href="?page={{ item_list.paginator.num_pages }}">last &raquo;</a>
+								{% endif %}
+								</span>
+						</div> 
+					
 				</div>
 			</div>
 
@@ -453,11 +301,11 @@
 
 			<!-- Promo 1 -->
 			<div class="sidebar_promo_1 sidebar_promo d-flex flex-column align-items-center justify-content-center">
-				<div class="sidebar_promo_image" style="background-image: url({% static 'images/sidebar_promo_1.jpg' %})"></div>
+				<div class="sidebar_promo_image" style="background-image: url({% static 'img/back1.jpeg' %})"></div>
 				<div class="sidebar_promo_content text-center">
 					<div class="sidebar_promo_title">30%<span>off</span></div>
-					<div class="sidebar_promo_subtitle">On all shoes</div>
-					<div class="sidebar_promo_button"><a href="checkout.html">check out</a></div>
+					<div class="sidebar_promo_subtitle">On All Accessories</div>
+					<div class="sidebar_promo_button"><a href="{% url 'accessories' %}">check out</a></div>
 				</div>
 			</div>
 
@@ -466,8 +314,8 @@
 				<div class="sidebar_promo_image" style="background-image: url({% static 'images/sidebar_promo_2.jpg' %})"></div>
 				<div class="sidebar_promo_content text-center">
 					<div class="sidebar_promo_title">30%<span>off</span></div>
-					<div class="sidebar_promo_subtitle">On all shoes</div>
-					<div class="sidebar_promo_button"><a href="checkout.html">check out</a></div>
+					<div class="sidebar_promo_subtitle">On All Dresses</div>
+					<div class="sidebar_promo_button"><a href="{% url 'product-list' %}">check out</a></div>
 				</div>
 			</div>
 		</div>
@@ -500,7 +348,8 @@
 								<button type="submit" class="newsletter_button">subscribe</button>
 							</form>
 						</div>
-						<div class="newsletter_text">Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestib ulum ultrices nulla. Aliquam egestas tempor leo.</div>
+						<div class="newsletter_text">I think it's always wonderful to dress people in the public eye. 
+							It's the icing on the cake and such an endorsement of what we do.</div>
 					</div>
 				</div>
 			</div>
@@ -510,34 +359,34 @@
 	<!-- Footer -->
 
 	<footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<div class="footer_logo"><a href="#">Wish</a></div>
-					<nav class="footer_nav">
-						<ul>
-							<li><a href="index.html">home</a></li>
-							<li><a href="categories.html">clothes</a></li>
-							<li><a href="categories.html">accessories</a></li>
-							<li><a href="categories.html">lingerie</a></li>
-							<li><a href="contact.html">contact</a></li>
-						</ul>
-					</nav>
-					<div class="footer_social">
-						<ul>
-							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						</ul>
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="footer_logo"><a href="{% url 'index' %}">Blush</a></div>
+						<nav class="footer_nav">
+							<ul>
+								<li><a href="{% url 'index' %}">home</a></li>
+								<li><a href="{% url 'product-list' %}">clothes</a></li>
+								<li><a href="{% url 'accessories' %}">Accessories</a></li>
+								<li><a href="{% url 'contactus' %}">About Us</a></li>
+								<li><a href="{% url 'contactus' %}">Contact</a></li>
+							</ul>
+						</nav>
+						<div class="footer_social">
+							<ul>
+								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+						<div class="copyright">
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+	</div>
 					</div>
-					<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 				</div>
 			</div>
-		</div>
 	</footer>
 </div>
 
@@ -570,3 +419,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{% static 'js/active.js' %}"></script>
 </body>
 </html>
+{% endblock %}

@@ -6,6 +6,12 @@ from django.db.models.signals import pre_save, post_save
 from .utils import unique_slug_generator
 
 # Create your models here.
+class Subscription(models.Model):
+    email_id = models.EmailField(max_length=150,  null=True)
+
+    def __str__(self):
+                return self.email_id
+
 
 def get_filename_ext(filepath):
     base_name = os.path.basename(filepath)
@@ -38,6 +44,15 @@ class Tags(models.Model):
         def __str__(self):
                 return self.name
 
+class Gallery(models.Model):
+        title=  models.CharField(max_length=150, blank=False)
+        insta=  models.CharField(max_length=150)
+        image=  models.ImageField(upload_to=upload_image_path, null=False, blank=False)
+        def __str__(self):
+                return self.title
+
+
+
 
 class Products(models.Model): 
     title       = models.CharField(max_length=150)
@@ -49,7 +64,11 @@ class Products(models.Model):
     image2       = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     category    = models.ManyToManyField(SubCategorie)
     tags        = models.ManyToManyField(Tags)
+    accessories    = models.BooleanField(default = False)
     featured    = models.BooleanField(default = False)
+    inspiredOutfit    = models.BooleanField(default = False)
+    celebrity    = models.BooleanField(default = False)
+    exclusive    = models.BooleanField(default = False)
     
   
     def __str__(self):
@@ -60,4 +79,6 @@ def product_pre_save_receiver(sender, instance, *args, **kwargs):
         instance.slug = unique_slug_generator(instance)
 
 pre_save.connect(product_pre_save_receiver, sender = Products)
+
+
 

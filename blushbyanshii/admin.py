@@ -7,3 +7,4 @@ from accounts.models import Profile
 
 admin.site.register(Carts)
 admin.site.register(Profile)
+admin.site.register(contact_form)

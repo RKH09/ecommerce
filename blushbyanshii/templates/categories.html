@@ -1,0 +1,166 @@
+{% extends "base/header.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BlushbyAnshii - Kissed in Sunshine</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Wish shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link href="{% static 'plugins/colorbox/colorbox.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+
+
+<!--essence-->
+    <link rel="stylesheet" href="{% static 'css/core-style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+{% endblock %}
+{% block body %}
+<div class="super_container">
+	
+	<!-- Header -->
+	<!-- Home -->
+    
+	
+	<!-- Promo -->
+
+	<div class="promo">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title_container text-center">
+                            <div class="section_subtitle">only the best</div>
+                            <div class="section_title">ALL Categories</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row promo_container">
+    
+                    <!-- Promo Item -->
+                    {% for cat in feature %}
+                        <div class="col-lg-4 promo_col" style="margin-bottom:10px;">
+                            <div class="promo_item" >
+								
+								{% for cate in cat.category.all %}
+								
+								{{cate}}
+                                <div class="promo_link" style="height:auto; color: skyblue; background-image: url({% static 'img/back.jpg' %}); ">
+                                    <a href="#" style="padding-top:10px; margin:0; color:black">{{cat.title}}</a>
+                                  
+
+								</div>
+								
+								{% endfor %}
+								
+                            </div>
+                        </div>
+                    {% endfor %}
+                   
+    
+                 
+    <!--background-image: url({% static 'img/back.jpg' %});-->
+                </div>
+            </div>
+        </div>
+
+	<!-- New Arrivals -->
+
+	
+
+	<!-- Extra -->
+
+	
+
+	<!-- Gallery -->
+
+	
+
+	<!-- Testimonials -->
+
+	
+
+	<!-- Newsletter -->
+
+	
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="footer_logo"><a href="#">Blush</a></div>
+					<nav class="footer_nav">
+						<ul>
+							<li><a href="index.html">home</a></li>
+							<li><a href="categories.html">clothes</a></li>
+							<li><a href="categories.html">Inpired Oufits</a></li>
+							<li><a href="categories.html">About Us</a></li>
+							<li><a href="contact.html">contact</a></li>
+						</ul>
+					</nav>
+					<div class="footer_social">
+						<ul>
+							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/colorbox/jquery.colorbox-min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+
+
+<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.js' %}"></script>
+<script src="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.js' %}"></script>
+<script src="{% static 'js/categories_custom.js' %}"></script>
+
+        <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Classy Nav js -->
+    <script src="{% static 'js/classy-nav.min.js' %}"></script>
+    <!-- Active js -->
+	<script src="{% static 'js/active.js' %}"></script>
+	
+	
+	
+	<script src="{% static 'js/js/instafeed.min.js' %}"></script>
+	<script src="{% static 'js/js/magnific.min.js' %}"></script>
+	<script src="{% static 'js/js/custom.js' %}"></script>
+</body>
+</html>
+{% endblock %}

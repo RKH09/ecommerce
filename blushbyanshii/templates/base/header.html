@@ -1,0 +1,196 @@
+{% load staticfiles %}
+{% block header %}
+{% endblock %}
+<header class="header_area">
+    <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar" id="essenceNav">
+            <!-- Logo -->
+            <a class="nav-brand" href="{% url 'index' %}" style="color: #e11687; font-family:'Poppins', sans-serif"><img src="{% static 'img/logo.png' %}" height="10" style="height:80px;" alt=""></a>
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+                <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+            <!-- Menu -->
+            <div class="classy-menu">
+                <!-- close btn -->
+                <div class="classycloseIcon">
+                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                </div>
+                <!-- Nav Start -->
+               
+                <div class="classynav">
+                    <ul>
+                        <li><a href="#">Clothing</a>
+                            <div class="megamenu">
+                                <ul class="single-mega cn-col-4">
+                                    <li class="title">INDIAN WEAR</li>
+                                    <li><a href="{% url 'category' %}?q=1">Sarees</a></li>
+                                    <li><a href="{% url 'category' %}?q=2">Lehengas</a></li>
+                                    <li><a href="{% url 'category' %}?q=3">Kurtis</a></li>
+                                    <li><a href="{% url 'category' %}?q=4">Ethnic Gown</a></li>
+                                    <li><a href="{% url 'category' %}?q=5">Two Pices Set</a></li>
+                                </ul>
+                                <ul class="single-mega cn-col-4">
+                                    <li class="title">WESTERN WEAR</li>
+                                    <li><a href="{% url 'category' %}?q=6">Tops &amp; Tees</a></li>
+                                    <li><a href="{% url 'category' %}?q=7">Gowns</a></li>
+                                    <li><a href="{% url 'category' %}?q=8">Dresses</a></li>
+                                    <li><a href="{% url 'category' %}?q=9">Prom Dresses</a></li>
+                                </ul>
+                                <ul class="single-mega cn-col-4">
+                                    <li class="title">INDO WESTERN</li>
+                                    <li><a href="{% url 'category' %}?q=10">Crop Top &amp; Skirt</a></li>
+                                    <li><a href="{% url 'category' %}?q=11">Drape Style</a></li>
+                                    <li><a href="{% url 'category' %}?q=12">Kurti Plazzo Set</a></li>
+                                    <li><a href="{% url 'category' %}?q=13">Three Piece Outfit</a></li>
+                                    
+                                </ul>
+                                <div class="single-mega cn-col-4">
+                                    <img src="{% static 'img/bg-img/bg-6.jpg' %}" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="#">Shop by </a>
+                            <ul class="dropdown">
+                                <li><a href="{% url 'lookbook' %}">Lookbook</a></li>
+                                <li><a href="{% url 'inspired' %}">Inspired Outfit</a></li>
+                                <li><a href="{% url 'celebrity' %}">Celebrity Inspired</a></li>
+                                <li><a href="{% url 'exclusive' %}">Exclusive Design</a></li>
+                                <li><a href="{% url 'accessories' %}">Accessories</a></li>
+                                <li><a href="{% url 'categories' %}">All Categories</a></li>
+                                <li><a href="{% url 'product-list' %}">All Products</a></li>
+                                <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="{% url 'accessories' %}">Accessories</a></li>
+                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                        
+                    </ul>
+                </div>
+                <!-- Nav End -->
+            </div>
+        </nav>
+
+        <!-- Header Meta Data -->
+        <div class="header-meta d-flex clearfix justify-content-end">
+            <!-- Search Area -->
+            <div class="search-area">
+                <form  action="{% url 'query' %}?q={{request.GET.q}}" method="GET">
+                    {% csrf_token %}
+                    <input type="search" name="q" value="{{ title }}" id="headerSearch" placeholder="Type for search">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <!-- Favourite Area -->
+            
+              
+            <!-- User Login Info -->
+            
+                <div class="classynav"  style="border-left:1px solid #e5e5e5">
+                            <ul>
+
+                            {% if request.user.is_authenticated %}  
+                                <li ><a href="#">{{request.user.username }} </a>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'profile' %}">My Profile</a></li>
+                                        <li><a href="{% url 'shopping_cart:wishlist' %}">My Wishlist</a></li>
+                                        <li><a href="{% url 'shopping_cart:order_summary' %}">My Cart</a></li>
+                                        <li><a href="{% url 'profile' %}">My Order</a></li>
+                                        <li><a href="{% url 'contactus' %}">About Us</a></li>
+                                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+
+                                        <li><a href="{% url 'logout_user' %}">Logout</a></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                            {% endif %}
+                            </ul>
+                </div>
+                <!--<img src="{% static 'img/core-img/user.svg' %}" alt=""> 
+                    <form action="{% url 'logout_user' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" style="background:none; height:30px;" value="Logout">
+                    </form>-->
+            
+            <!-- Cart Area -->
+            {% if request.user.is_authenticated %}
+            <div class="cart-area">
+                <a href="#" id="essenceCartBtn"><img src="{% static 'img/core-img/bag.svg' %}" alt=""> <span></span></a>
+            </div>
+            {% else %}
+            <div class="cart-area">
+                <a href="{% url 'signup' %}" >Sign Up </a>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</header>
+<!-- ##### Header Area End ##### -->
+
+<!-- ##### Right Side Cart Area ##### -->
+<div class="cart-bg-overlay"></div>
+
+<div class="right-side-cart-area">
+
+    <!-- Cart Button -->
+    <div class="cart-button">
+        <a href="#" id="rightSideCart"><img src="{% static 'img/core-img/bag.svg' %}" alt=""> <span></span></a>
+    </div>
+
+    <div class="cart-content d-flex">
+
+        <!-- Cart List Area -->
+        <div class="cart-list">
+            
+            
+        
+
+            <!-- Single Cart Item -->
+        {% if request.user.is_authenticated %}
+            {% for item in order.get_cart_items %}
+            <div class="single-cart-item">
+                <a href="#" class="product-image">
+                {% if item.product.image  %}
+                    <img src="{{ item.product.image.url }}" class="cart-thumb" alt="">
+                {% endif %}
+                    <!-- Cart Item Desc -->
+                    <div class="cart-item-desc">
+                      <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+                        <h6>{{ item.product.title }}</h6>
+                        <p class="size">Category: {% for cat in item.product.category.all %} {{cat}}{% endfor%}</p>
+                        <p class="color">Tag: {% for tag in item.product.tags.all %} {{tag}}{% endfor%}</p>
+                        <p class="price">&#x20b9;{{ item.product.price }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        
+           
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-amount-summary">
+
+            <h2>Summary</h2>
+            <ul class="summary-table">
+                
+                <li><span>subtotal:</span> <span>&#x20b9;{{ order.get_cart_total }}</span></li>
+                <li><span>delivery:</span> <span>Free</span></li>
+                <li><span>discount:</span> <span>0</span></li>
+                <li><span>total:</span> <span>&#x20b9;{{ order.get_cart_total }}</span></li>
+            </ul>
+            {% endif %}
+            <div class="checkout-btn mt-100">
+                <a href="{% url 'shopping_cart:order_summary' %}" class="btn essence-btn">check out</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="height: 1px;"></div>
+{% block body %}
+{% endblock %}

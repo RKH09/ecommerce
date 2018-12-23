@@ -1,4 +1,414 @@
+{% extends "base/header.html" %}
+{% load staticfiles %}
+{% block header %}
+                     <!DOCTYPE html>
+                     <html lang="en">
+                     <head>
+                     <title>{{title}} - Search | BLUSH</title>
+                     <meta charset="utf-8">
+                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                     <meta name="description" content="Wish shop project">
+					 <meta name="viewport" content="width=device-width, initial-scale=1">
+					 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                     <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+                     <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+					 <link href="{% static 'plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.css' %}" rel="stylesheet" type="text/css">
+					 <link rel="stylesheet" type="text/css" href="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.css' %}">
+					 <link rel="stylesheet" type="text/css" href="{% static 'styles/categories.css' %}">
+					 <link rel="stylesheet" type="text/css" href="{% static 'styles/categories_responsive.css' %}">
+                     <!--essence-->
+                         <link rel="stylesheet" href="{% static 'css/core-style.css' %}">
+						 <link rel="stylesheet" href="{% static 'style.css' %}">
+						 <style>
+						 .sidebar_section:hover .sidebar_title
+							{
+								background: #e11687;
+								color: #FFFFFF;
+							}
+							.product_buy{
+								background: #e11687;
+								color: #FFFFFF;
+							}
+						 </style>
+                     </head>
+                     <body>
+{% endblock %}
+{% block body %}
+                     <div class="super_container">
+                         
 
+
+	<!-- Home -->
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/cart.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_container" style="height:250px;">
+						<div class="home_content" style="top:50%">
+							<div class="home_title">{{ query }}</div>
+							<div class="breadcrumbs">
+								<ul>
+									<li><a href="{% url 'index' %}">Home</a></li>
+									<li>Search</li>
+									<li>{{query}}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="height:5px; width:100%; background-color:#e11687"></div>
+	</div>
+
+
+	<!-- Products -->
+
+	<div class="products">
+		<div class="container">
+			<div class="row">
+				<div class="col-10">
+					
+					<!-- Sidebar Left -->
+
+					<div class="sidebar_left clearfix" style=" top: 0;" >
+
+						<!-- Categories -->
+						<div class="sidebar_section" >
+							<div class="sidebar_title">Categories</div>
+							<div class="sidebar_section_content">
+								<ul>
+									<li><a href="{% url 'product-list' %}">Dresses </a></li>
+									<li><a href="{% url 'accessories' %}">Accessories</a></li>
+									<li><a href="{% url 'category' %}?q=1">Sarees </a></li>
+									<li><a href="{% url 'category' %}?q=2">Lehengas </a></li>
+									<li><a href="{% url 'category' %}?q=10">Crop Top & Skirts</a></li>
+									<li><a href="{% url 'categories' %}?q=10">All Categories</a></li>
+								</ul>
+								
+							</div>
+						</div>
+						
+						<!-- Color -->
+						<div class="sidebar_section">
+							<div class="sidebar_title">Tags</div>
+							<div class="sidebar_section_content sidebar_color_content mCustomScrollbar" data-mcs-theme="minimal-dark">
+								
+								<ul>
+									{% for tagName in tags %}
+									
+										<li><a href="../tags/?q={{tagName}}">
+											<span class="glyphicon glyphicon-ok"></span>{{tagName}}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+
+
+						<!-- Best Sellers -->
+
+						<div class="sidebar_section">
+							<div class="sidebar_title">Exclusive</div>
+							<div class="sidebar_section_content bestsellers_content">
+								<ul>
+									<!-- Best Seller Item -->
+									{% for lists in feat %}
+									<li class="clearfix">
+										<div class="best_image"><img src="{{ lists.image.url }}" alt=""></div>
+										<div class="best_content">
+											<div class="best_title"><a href="/products/{{ lists.slug }}">{{ lists.title|slice:":25" }}</a></div>
+											<div class="best_price">&#x20b9;{{ lists.price }}</div>
+										</div>
+										
+									</li>
+									{% endfor %}
+
+									
+
+								</ul>
+							</div>
+						</div>
+
+						<!-- Size -->
+						<div class="sidebar_section sidebar_options">
+							<div class="sidebar_section_content">
+
+								<!-- Option Item -->
+								<div class="sidebar_option d-flex flex-row align-items-center justify-content-start">
+									<div class="option_image"><img src="{% static 'images/option_1.png' %}" alt=""></div>
+									<div class="option_content">
+										<div class="option_title">30 Days Returns</div>
+										<div class="option_subtitle">No questions asked</div>
+									</div>
+								</div>
+
+								<!-- Option Item -->
+								<div class="sidebar_option d-flex flex-row align-items-center justify-content-start">
+									<div class="option_image"><img src="{% static 'images/option_2.png' %}" alt=""></div>
+									<div class="option_content">
+										<div class="option_title">Free Delivery</div>
+										<div class="option_subtitle">On all orders</div>
+									</div>
+								</div>
+
+								<!-- Option Item -->
+								<div class="sidebar_option d-flex flex-row align-items-center justify-content-start">
+									<div class="option_image"><img src="{% static 'images/option_3.png' %}" alt=""></div>
+									<div class="option_content">
+										<div class="option_title">Secure Payments</div>
+										<div class="option_subtitle">No need to worry</div>
+									</div>
+								</div>
+
+								<!-- Option Item -->
+								<div class="sidebar_option d-flex flex-row align-items-center justify-content-start">
+									<div class="option_image"><img src="{% static 'images/option_4.png' %}" alt=""></div>
+									<div class="option_content">
+										<div class="option_title">24/7 Support</div>
+										<div class="option_subtitle">Just call us</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+					
+				</div>
+			
+			</div>
+
+			<div class="row products_container" style="margin-top:0; padding-top:0;">
+				<div class="col">
+					
+					<!-- Products -->
+
+					<div class="product_grid">
+							<!-- Product -->
+						{% for list in item_list %}
+							<div class="product">
+								<div class="product_image"><img src="{{ list.image.url }}" alt=""></div>
+								
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="/products/{{ list.slug }}">{{ list.title|slice:":35" }}</a></div>
+										<div class="product_price">Rs. {{ list.price }}</div>
+									</div>
+									<div class="product_options">
+											{% if request.user.is_authenticated  %}
+											{% if list in current_order_products %}
+											<a href="{% url 'shopping_cart:order_summary' %}"><div class="product_buy product_option" 
+												style="width:auto; height: auto; padding: 9px; color:white" >
+													Go To Cart</div></a>
+											{% else %}
+											<div class="product_buy product_option" alt="Add to Cart" id="product{{ list.id }}" onclick="addtocart('{{ list.id }}')">
+												<img src="{% static 'images/shopping-bag-white.svg' %}" alt=""></div>
+											{% endif %}
+		
+											{% if list in wishlist_order_products %}
+												<div class="product_fav product_option" style="color:white; background:black;">+</div>
+											{% else %}
+												<div class="product_fav product_option" id="wishlist{{ list.id }}" onclick="addtowishlist('{{ list.id }}')">+</div>
+											{% endif %}
+		
+											{% else %}
+											<div class="product_buy product_option" style="width:auto; height: auto; padding: 8px; color:white">
+												<a href="{% url 'login' %}" style="color:#FFF;">Login</a></div>
+											{%	endif	%}
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							<!-- Product -->
+						<!-- Product -->
+						
+
+					</div>
+				</div>
+					
+			</div>
+
+			<div class="row page_num_container">
+				<div class="col text-right">
+					<ul class="page_nums">
+						<li class="active"><a href="#">01</a></li>
+						 
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			function addtocart(product_id){
+				var product = product_id;
+				$('#product'+product).css("width","auto");
+				$('#product'+product).css("height","auto");
+				$('#product'+product).css("color","white");
+				$('#product'+product).css("padding","9px");
+				$('#product'+product).html('<a href="{% url 'shopping_cart:order_summary' %}" ><font color="white">Go to Cart</font></a>');
+				$.ajax({
+				type: 'POST',
+				url: '/add-to-cart/'+product+'/',
+				data:{
+				csrfmiddlewaretoken: '{{ csrf_token }}',
+				product:product,
+				},
+				success:function(){
+					
+				}
+				});
+				
+				}
+				
+		</script>
+		<script type="text/javascript">
+			function addtowishlist(product_id){
+				var product = product_id;
+				$('#wishlist'+product).css("background","black");
+				$('#wishlist'+product).css("color","white");
+				$.ajax({
+				type: 'POST',
+				url: '/add-to-wishlist/'+product+'/',
+				data:{
+				csrfmiddlewaretoken: '{{ csrf_token }}',
+				product:product,
+				},
+				success:function(){
+					
+				}
+				});
+				
+				}
+				
+		</script>
+		
+		<!-- Sidebar Right -->
+
+		<div class="sidebar_right clearfix" style="top:95px">
+
+				<!-- Promo 1 -->
+				<div class="sidebar_promo_1 sidebar_promo d-flex flex-column align-items-center justify-content-center">
+						<div class="sidebar_promo_image" style="background-image: url({% static 'img/back1.jpeg' %})"></div>
+						<div class="sidebar_promo_content text-center">
+							<div class="sidebar_promo_title">30%<span>off</span></div>
+							<div class="sidebar_promo_subtitle">On all accessories</div>
+							<div class="sidebar_promo_button"><a href="{% url 'accessories' %}">check out</a></div>
+						</div>
+					</div>
+		
+					<!-- Promo 2 -->
+					<div class="sidebar_promo_2 sidebar_promo">
+						<div class="sidebar_promo_image" style="background-image: url({% static 'images/sidebar_promo_2.jpg' %})"></div>
+						<div class="sidebar_promo_content text-center">
+							<div class="sidebar_promo_title">30%<span>off</span></div>
+							<div class="sidebar_promo_subtitle">On all dresses</div>
+							<div class="sidebar_promo_button"><a href="{% url 'product-list' %}">check out</a></div>
+						</div>
+					</div>
+				</div>
+
+	</div>
+
+	<!-- Extra -->
+
+	
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="newsletter_content">
+			<div class="newsletter_image" style="background-image:url({% static 'images/newsletter.jpg' %})"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="section_title_container text-center">
+							<div class="section_subtitle">only the best</div>
+							<div class="section_title">subscribe for a 20% discount</div>
+						</div>
+					</div>
+				</div>
+				<div class="row newsletter_container">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="newsletter_form_container">
+							<form action="#">
+								<input type="email" class="newsletter_input" required="required" placeholder="E-mail here">
+								<button type="submit" class="newsletter_button">subscribe</button>
+							</form>
+						</div>
+						<div class="newsletter_text">I think it's always wonderful to dress people in the public eye. 
+								It's the icing on the cake and such an endorsement of what we do.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="footer_logo"><a href="{% url 'index' %}">Blush</a></div>
+						<nav class="footer_nav">
+							<ul>
+								<li><a href="{% url 'index' %}">home</a></li>
+								<li><a href="{% url 'product-list' %}">clothes</a></li>
+								<li><a href="{% url 'accessories' %}">Accessories</a></li>
+								<li><a href="{% url 'contactus' %}">About Us</a></li>
+								<li><a href="{% url 'contactus' %}">Contact</a></li>
+							</ul>
+						</nav>
+						<div class="footer_social">
+							<ul>
+								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+						<div class="copyright">
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+	</div>
+					</div>
+				</div>
+			</div>
+	</footer>
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/colorbox/jquery.colorbox-min.js' %}"></script>
+
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.js' %}"></script>
+<script src="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.js' %}"></script>
+<script src="{% static 'js/categories_custom.js' %}"></script>
+
+		<!-- jQuery (Necessary for All JavaScript Plugins) -->
+	<script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+	<!-- Popper js -->
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<!-- Bootstrap js -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Plugins js -->
+	<script src="{% static 'js/plugins.js' %}"></script>
+	<!-- Classy Nav js -->
+	<script src="{% static 'js/classy-nav.min.js' %}"></script>
+	<!-- Active js -->
+	<script src="{% static 'js/active.js' %}"></script>
+</body>
+</html>
+{% endblock %}
     Result for <b>{{ query }}</b>
 
 

@@ -1,64 +1,276 @@
+{% extends "base/header.html" %}
+{% load staticfiles %}
+{% block header %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Checkout</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Wish shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+                     <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+					 <link href="{% static 'plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.css' %}" rel="stylesheet" type="text/css">
+					 <link rel="stylesheet" type="text/css" href="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.css' %}">
+					 <link rel="stylesheet" type="text/css" href="{% static 'styles/checkout.css' %}">
+                     <link rel="stylesheet" type="text/css" href="{% static 'styles/checkout_responsive.css' %}">
+                     <!--essence-->
+                         <link rel="stylesheet" href="{% static 'css/core-style.css' %}">
+						 <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+{% endblock %}
+{% block body %}
 
- <section>
-   <div class="row">
-    <table class="table table-hover table-bordered text-center">
-      <tr class="text-center">
-        <th>no.</th>
-        <th>Item</th>
-        <th>Price</th>
-      </tr>
-      {% for item in order.get_cart_items %}
-        <tr>
-          <td>{{ forloop.counter }}</td>
-          <td>
-            {{ item.product.title }}
-            <span class="pull-right">
-              <a href="{% url 'shopping_cart:delete_item' item.id %}" data-balloon="remove this item from cart" class="text-danger" onclick="return confirm_delete();">
-                <i class="fas fa-trash"></i>delete
-              </a>
-            </span>
-          </td>
-          <td>{{ item.product.price }}</td>
-        </tr>
-      {% empty %}
-        <tr>
-          <td colspan= 3> You have not added any items yet.</td>
-        </tr>
-      {% endfor %}
-      <tr>
-        {% if order.get_cart_total != None %}
-        <td colspan=2>
-          <strong class="pull-right">Order Total:</strong>
-        </td>
-        
-        <td colspan= 1>
-          $<strong>{{ order.get_cart_total }}</strong>
-        </td>
-        {% endif %}
-      </tr>
-      <tr>
-        <td colspan=1 >
-          <a href="{% url 'products:product-list' %}" class="btn btn-warning pull-left">
-            {% if order %}Continue Shopping{% else %}Add Items to Cart {% endif %}
-          </a> 
-        </td>
-        <td colspan=2>
-          {% if order.get_cart_items %}
-            <a href="{% url 'shopping_cart:checkout' %}" class="pull-right btn btn-primary">Proceed To Checkout</a>
-          {% endif %}
-        </td>
-      </tr>
-    </table>
-     
-   </div>
- </section>
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<!-- Home -->
+
+	<div class="home">
+            <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/cart.jpg' %}" data-speed="0.8"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_container" style="height:250px;">
+                            <div class="home_content" style="top:50%">
+                                <div class="home_title">Woman</div>
+                                <div class="breadcrumbs">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li>Woman</li>
+                                        <li>Accessories</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="height:5px; width:100%; background-color:#e11687"></div>
+        </div>
+
+	<!-- Checkout -->
+
+	<div class="checkout">
+		<div class="container">
+			<div class="row">
+
+				<!-- Billing Details -->
+				<div class="col-lg-6">
+					<div class="billing">
+						<div class="checkout_title" style="margin-bottom:5px;">Delivery Address:</div>
+						<div class="checkout_form_container">
+								<style>
+										#address_body p{
+											margin: 0;
+											color: #333333;
+											padding: 0;
+											font-size: 16px;
+										}
+								</style>
+						{% for addresses in address %}
+						<div id="address_body" style="padding: 5px;">
+						
+							<p>Name: <b>{{addresses.first_name}} {{addresses.last_name}}</b></p>
+							<p>Email Address: <b>{{addresses.email}}</b></p>
+							<p>Address: <b>{{addresses.address}}, {{addresses.town}} {{addresses.country}}</b></p>
+							
+							
+							<p>Phone No.: <b>{{addresses.phone}}</b></p>
+							<p>Comment: <b>{{addresses.comment}}</b></p>
+						</div>
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+
+				<!-- Cart Details -->
+				<div class="col-lg-6">
+					<div class="cart_details">
+						<div class="checkout_title">cart total</div>
+						<div class="cart_total">
+							<ul>
+                                
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Product</div>
+									<div class="cart_total_price ml-auto">Total</div>
+                                </li>
+                            
+                                {% for item in order.get_cart_items %}
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">{{ forloop.counter }}. {{ item.product.title }}
+											<a href="{% url 'shopping_cart:delete_item' item.id %}" data-balloon="remove this item from cart" class="text-danger" onclick="return confirm_delete();">
+												<span class="product-remove" >
+												<i class="fa fa-close" aria-hidden="true"></i></span></a></div>
+									<div class="cart_total_price ml-auto">&#x20b9;{{ item.product.price }}</div>
+                                </li>
+                                {% endfor %}
+
+								<li class="d-flex flex-row align-items-start justify-content-start total_row">
+									<div class="cart_total_title">Total</div>
+									<div class="cart_total_price ml-auto">&#x20b9;{{ order.get_cart_total }}</div>
+								</li>
+							</ul>
+						</div>
+						<script>
+								function confirm_delete(){
+								  return confirm("Do you want to remove this item from cart?");
+								}
+						</script>
+						<div class="payment_options">
+							<div>
+								<input type="radio" id="radio_payment_1" name="regular_radio" class="regular_radio">
+								<label for="radio_payment_1">cash on delivery</label>
+							</div>
+							<div>
+								<input type="radio" id="radio_payment_2" name="regular_radio" class="regular_radio" checked>
+								<label for="radio_payment_2">paypal</label>
+								<div class="visa payment_option"><a href="#"><img src="{% static 'images/visa.jpg' %}" alt=""></a></div>
+								<div class="master payment_option"><a href="#"><img src="{% static 'images/master.jpg' %}" alt=""></a></div>
+							</div>
+							<button class="cart_total_button"><a href="{% url 'shopping_cart:checkout' %}">place order</a></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="newsletter_content">
+			<div class="newsletter_image parallax-window" data-parallax="scroll" data-image-src="{% static 'images/cart_nl.jpg' %}" data-speed="0.8"></div>
+			<div class="container">
+				<div class="row options">
+
+					<!-- Options Item -->
+					<div class="col-lg-3">
+						<div class="options_item d-flex flex-row align-items-center justify-content-start">
+							<div class="option_image"><img src="{% static 'images/option_1.png' %}" alt=""></div>
+							<div class="option_content">
+								<div class="option_title">30 Days Returns</div>
+								<div class="option_subtitle">No questions asked</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Options Item -->
+					<div class="col-lg-3">
+						<div class="options_item d-flex flex-row align-items-center justify-content-start">
+							<div class="option_image"><img src="{% static 'images/option_2.png' %}" alt=""></div>
+							<div class="option_content">
+								<div class="option_title">Free Delivery</div>
+								<div class="option_subtitle">On all orders</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Options Item -->
+					<div class="col-lg-3">
+						<div class="options_item d-flex flex-row align-items-center justify-content-start">
+							<div class="option_image"><img src="{% static 'images/option_3.png' %}" alt=""></div>
+							<div class="option_content">
+								<div class="option_title">Secure Payments</div>
+								<div class="option_subtitle">No need to worry</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Options Item -->
+					<div class="col-lg-3">
+						<div class="options_item d-flex flex-row align-items-center justify-content-start">
+							<div class="option_image"><img src="{% static 'images/option_4.png' %}" alt=""></div>
+							<div class="option_content">
+								<div class="option_title">24/7 Support</div>
+								<div class="option_subtitle">Just call us</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="row newsletter_row">
+					<div class="col">
+						<div class="section_title_container text-center">
+							<div class="section_subtitle">only the best</div>
+							<div class="section_title">subscribe for a 20% discount</div>
+						</div>
+					</div>
+				</div>
+				<div class="row newsletter_container">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="newsletter_form_container">
+							<form action="#">
+								<input type="email" class="newsletter_input" required="required" placeholder="E-mail here">
+								<button type="submit" class="newsletter_button">subscribe</button>
+							</form>
+						</div>
+						<div class="newsletter_text">I think it's always wonderful to dress people in the public eye. It's the icing on the cake and such an endorsement of what we do.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="footer_logo"><a href="{% url 'index' %}">Blush</a></div>
+					<nav class="footer_nav">
+						<ul>
+							<li><a href="{% url 'index' %}">home</a></li>
+							<li><a href="{% url 'product-list' %}">clothes</a></li>
+							<li><a href="{% url 'accessories' %}">Accessories</a></li>
+							<li><a href="{% url 'contactus' %}">About Us</a></li>
+							<li><a href="{% url 'contactus' %}">Contact</a></li>
+						</ul>
+					</nav>
+					<div class="footer_social">
+						<ul>
+							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="copyright">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
 
 
-{% block scripts %}
-  
-  <script>
-  function confirm_delete(){
-    return confirm("Do you want to remove this item from cart?");
-  }
-  </script>
-{% endblock scripts %}
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.js' %}"></script>
+<script src="{% static 'js/checkout_custom.js' %}"></script>
+
+		<!-- jQuery (Necessary for All JavaScript Plugins) -->
+	<script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+	<!-- Popper js -->
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<!-- Bootstrap js -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Plugins js -->
+	<script src="{% static 'js/plugins.js' %}"></script>
+	<!-- Classy Nav js -->
+	<script src="{% static 'js/classy-nav.min.js' %}"></script>
+	<!-- Active js -->
+	<script src="{% static 'js/active.js' %}"></script>
+</body>
+</html>
+{% endblock %}
