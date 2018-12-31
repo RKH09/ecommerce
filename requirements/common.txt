@@ -1,2 +1,2 @@
 django
-social_django
+social-auth-app-django
