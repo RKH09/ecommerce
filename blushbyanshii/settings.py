@@ -25,7 +25,7 @@ SECRET_KEY = 'zv^=2b*sm^+03n!yj%0wioa0+x*$p+5n4v5cpt-#1le5g5)iq1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://ecommerce-env.jxcsurczab.us-west-2.elasticbeanstalk.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
