@@ -14,13 +14,4 @@ phases:
 artifacts:
   type: zip
   files:
-    - 'template.yml'
-    - 'ec2django/**/*'
-    - 'helloworld/**/*'
-    - 'scripts/**/*'
-    - 'appspec.yml'
-    - 'manage.py'
-    - 'requirements/**/*'
-    - 'requirements.txt'
-    - 'supervisord.conf'
-    - 'application.py'
+    - '**/*'
