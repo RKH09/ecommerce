@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       # Install dependencies needed for running tests
-      - pip install -r requirements/common.txt -t ./
+      - pip install -r requirements/common.txt
 
   pre_build:
     commands:
