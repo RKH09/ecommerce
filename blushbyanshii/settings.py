@@ -146,10 +146,10 @@ LOGIN_REDIRECT_URL = 'index'
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 #NEW_BASE_DIR = BASE_DIR+'/'
 STATIC_URL = '/static/'
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static"),
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
 #    os.path.join(BASE_DIR, 'static_cdn', 'static_root')
-#]
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'static_root')
 
 MEDIA_URL = '/media/'
