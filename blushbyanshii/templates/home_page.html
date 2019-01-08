@@ -189,13 +189,15 @@
 					<div class="col-lg-4 product_col" style="margin-bottom:15px;">
 						<div class="product">
 							<div class="product_image">
+								{% if list.image %}
 								<img src=" {{ list.image.url }}" alt="">
+								{% endif %}
 							</div>
 							
 							<div class="product_content clearfix">
 								<div class="product_info">
 									<div class="product_name"><a href="/products/{{ list.slug }}">{{list.title|slice:":28"}}</a></div>
-									<div class="product_price">{{ list.price }}</div>
+									<div class="product_price">&#x20b9;{{ list.price }}</div>
 								</div>
 								<div class="product_options">
 									{% if request.user.is_authenticated  %}
@@ -236,7 +238,7 @@
 		<div class="extra_promo extra_promo_1">
 			<div class="extra_promo_image" style="background-image:url({% static 'images/extra_1.jpg' %})"></div>
 			<div class="extra_1_content d-flex flex-column align-items-center justify-content-center text-center">
-				<div class="extra_1_price">30%<span>off</span></div>
+				<div class="extra_1_price">30%<span>off</span></div>admin/login/?next=/admin/
 				<div class="extra_1_title">On all dresses</div>
 				<div class="extra_1_text">I like the challenge of dressing ladies in lots of different things.</div>
 				<div class="button extra_1_button"><a href="{% url 'lookbook' %}">check out</a></div>
