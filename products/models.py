@@ -53,6 +53,11 @@ class Gallery(models.Model):
 
 
 
+class bannerImage(models.Model):
+        image1 = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+        image2 = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+        image3 = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+        
 
 class Products(models.Model): 
     title       = models.CharField(max_length=150)

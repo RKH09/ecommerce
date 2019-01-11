@@ -8,7 +8,7 @@ from django.contrib.sessions.models import Session
 from django.contrib.auth.models import User
 from shopping_cart.models import Delivery
 from accounts.models import contact_form
-from products.models import SubCategorie, Products, Gallery, Category, Subscription
+from products.models import SubCategorie, Products, Gallery, Category, Subscription, bannerImage
 from shopping_cart.views import order_details, get_user_pending_order, Order, update_transaction_records, Wishlist, add_to_cart
 from accounts.views import my_profile
 
@@ -17,8 +17,9 @@ from accounts.views import my_profile
 def home_page(request):
 	qs = Products.objects.filter(featured=True).order_by('-id')[:6]
 	exclusive = Products.objects.filter(exclusive=True).order_by('-id')[:6]
+	banner_image  = bannerImage.objects.all()
 	order_count = Order.get_cart_total
-	gallery = Gallery.objects.all()
+	gallery = Gallery.objects.all().order_by('-id')[:15]
 	username = request.user.username
 	if request.user.is_authenticated:
 		
@@ -51,6 +52,7 @@ def home_page(request):
 			'count': order_count,
 			'username':username,
 			'gallery':gallery,
+			'banner':banner_image,
 			'count':order_count,
 			'current_order_products': current_order_products,
 			'wishlist_order_products': wishlist_order_products,

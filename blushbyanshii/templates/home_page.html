@@ -42,7 +42,7 @@
 				
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({% static 'other_imgs/M7A9379_cfefe578-8387-497f-86fa-16fab125c9f6_1600x800.progressive.jpg' %})"></div>
+					<div class="home_slider_background" style="background-image:url({% for image in banner %}{{image.image1.url}}{% endfor %})"></div>
 					<div class="home_slider_content">
 						<div class="home_slider_content_inner">
 							<div class="home_slider_subtitle">New definition of style</div>
@@ -53,7 +53,7 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({% static 'other_imgs/slider-image-7.jpg' %})"></div>
+					<div class="home_slider_background" style="background-image:url({% for image in banner %}{{image.image2.url}}{% endfor %})"></div>
 					<div class="home_slider_content">
 						<div class="home_slider_content_inner">
 							<div class="home_slider_subtitle">Discover our new collection</div>
@@ -64,7 +64,7 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({% static 'other_imgs/slider-image-1.jpg' %})"></div>
+					<div class="home_slider_background" style="background-image:url({% for image in banner %}{{image.image3.url}}{% endfor %})"></div>
 					<div class="home_slider_content">
 						<div class="home_slider_content_inner"> 
 							<div class="home_slider_subtitle">A classic never goes out of style</div>

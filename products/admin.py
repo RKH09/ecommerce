@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Products, Category, SubCategorie, Tags, Gallery, Subscription
+from .models import Products, Category, SubCategorie, Tags, Gallery, Subscription, bannerImage
 
 
 
@@ -16,3 +16,4 @@ admin.site.register(SubCategorie)
 admin.site.register(Tags)
 admin.site.register(Gallery)
 admin.site.register(Subscription)
+admin.site.register(bannerImage)
