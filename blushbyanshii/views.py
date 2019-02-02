@@ -63,6 +63,7 @@ def home_page(request):
 			'exc':exclusive, 
 			'username':username,
 			'gallery':gallery,
+			'banner':banner_image,
 		}
 	return render(request, "home_page.html", context) 
 
